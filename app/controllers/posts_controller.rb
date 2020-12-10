@@ -6,4 +6,16 @@ class PostsController < ApplicationController
     Post.create(content: params[:content])
     redirect_to action: :index
   end
+  def checked
+    # ルーティングで設定したURLパラメーターのidを取得している
+    post = Post.find(params[:id])
+    if post.checked
+      post.update(checked: false)
+    else
+      post.update(checked: true)
+    end
+
+    item = Post.find(parama[:id])
+    render json: { post: item }
+  end
 end
