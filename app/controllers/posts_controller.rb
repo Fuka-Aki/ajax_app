@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     # 変数postに未読状態のcontentカラムの情報を保存し代入
     post = Post.create(content: params[:content], checked: false)
     # 上記post変数をjsonのデータハッシュに返却元として格納
-    render json{post: post}
+    render json: {post: post}
   end
   def checked
     # ルーティングで設定したURLパラメーターのidを取得している
